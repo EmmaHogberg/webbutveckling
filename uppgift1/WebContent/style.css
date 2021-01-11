@@ -1,0 +1,39 @@
+@charset "ISO-8859-1";
+
+body {
+	background-color: #fffde7;
+}
+
+header {
+	background-color: #2e7d32;
+	height: 100px;
+	width: auto;
+	text-align: center;
+	
+}
+
+.center {
+	min-height: 200px;
+}
+
+img {
+	max-height: 200px;
+}
+
+h1 {
+	font-size: 50px;
+	padding: 20px;
+	color: #fffde7;
+}
+
+footer {
+	background-color: #2e7d32;
+	height: 80px;
+	width: auto;
+	text-align: center;
+}
+
+p {
+	padding: 20px;
+	color: #fffde7;
+}
