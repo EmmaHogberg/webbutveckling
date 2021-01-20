@@ -1,9 +1,5 @@
 package mvc;
 
-
-
-
-
 public class LoginBean {
 	
 	
@@ -34,11 +30,13 @@ public class LoginBean {
 	
 	public boolean validate() {
 		
-		if (username.equals("Marcus") && password.equals("admin")) {
+		 
+		
+		if (username.equals("Marcus") && password.equals("admin") || username.equals("Marcus")) {
 			return true;
 		} 
 		
-		else if (username.equals("Emma") && password.equals("admin")) {
+		else if (username.equals("Emma") && password.equals("admin") || username.equals("Emma")) {
 			return true;
 		}
 		

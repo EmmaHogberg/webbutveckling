@@ -24,17 +24,10 @@ public class ControllerServlet extends HttpServlet {
     
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-	 HttpSession session = request.getSession();
-	
-	
-	String username = null;
-	
-	
-	try {
-		username = (String)session.getAttribute("username");
-	} catch (IllegalStateException e) {	
-	}
-	
+	response.setContentType("text/html");
+	Cookie cookie[] = request.getCookies();
+	String username = cookie[1].getValue();
+
 	
 	if (username != null) {
 		LoginBean bean = new LoginBean();
@@ -63,6 +56,11 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
+		if (username.equals("")) {
+				Cookie cookie[] = request.getCookies();
+				username = cookie[1].getValue();
+		}
+		
 		
 		
 		
@@ -72,39 +70,20 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		request.setAttribute("bean", bean);
 		boolean loginOk = bean.validate();
 		
+		
 		if (loginOk) {
-			
-			try {
-				
-				HttpSession session = request.getSession();
-				session.setAttribute("username", username);
-				
-			}
-			
-			catch (Exception e) {
-				System.out.print(e);
-			}
-			
-			
 			Cookie ck = new Cookie("username", username);  
             response.addCookie(ck);  
 			RequestDispatcher rd = request.getRequestDispatcher("login-success.jsp");
 			rd.forward(request, response);
-			
-			
-			
 		} 
 		
 		else {
 			RequestDispatcher rd = request.getRequestDispatcher("login-error.jsp");
 			rd.forward(request, response);
 			
-			
 		}
-		
-		
-		
 
 	}
-
+	
 }

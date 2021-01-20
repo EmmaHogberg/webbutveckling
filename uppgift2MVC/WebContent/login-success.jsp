@@ -1,3 +1,4 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.If"%>
 <%@page import = "mvc.LoginBean" %>
 
 
@@ -9,29 +10,21 @@ response.setContentType("text/html");
 LoginBean bean = (LoginBean)request.getAttribute("bean");
 
 if (bean != null) {
-	out.print("Welcome" + bean.getUsername());
-	out.print(bean.getUserTask());
-}
-else {
+	out.print("Welcome " + bean.getUsername());
+	
+	String userTask = bean.getUserTask();
+	
+	if (userTask != null) {
+	out.print("<p>Your goal for today is: " + userTask + "</p>");
+	}
+	
+} else {
 	response.sendRedirect("index.jsp");
 }
 
-
-
-try {
-	
-	Cookie cookie[] = request.getCookies();
-	out.print(cookie[1]);
-	out.print("<br>");
-	out.print(cookie[1].getName());
-	out.print(cookie[1].getPath());
-	out.print(cookie[1].getValue());
-} catch (Exception e) {
-	System.out.print(e);
-}
 %>
 
-<form>
+<form action="<%= request.getContextPath() %>/ControllerServlet" method="get">
 	
 	What is your tasks for today: <input type="text" name="userTask">
 	<input type="submit" value="Submit">
