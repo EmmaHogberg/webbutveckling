@@ -13,7 +13,6 @@
 
 		<p>You are logged in</p>
 		
-		
 		<%
 		response.setContentType("text/html");
 		LoginBean bean = (LoginBean)request.getAttribute("bean");
@@ -33,7 +32,6 @@
 		} else {
 			response.sendRedirect("index.jsp");
 		}
-		
 		%>
 		
 		<form action="<%= request.getContextPath() %>/TodoServlet" method="post">
@@ -42,6 +40,5 @@
 			<input type="submit" value="Submit">
 		
 		</form>
-
 	</body>
 </html>
