@@ -4,6 +4,7 @@ public class LoginBean {
 	
 	
 	private String username, password, userTask;
+	// private ArrayList<String> todoList = new ArrayList<String>();
 	
 
 	public String getUsername() {
@@ -22,15 +23,27 @@ public class LoginBean {
 		this.password = password;
 	}
 	
+	public String getUserTask() {
+		return userTask;
+	}
+
+	public void setUserTask(String userTask) {
+		this.userTask = userTask;
+	}
+
+//	public ArrayList<String> getTodoList() {
+//		return todoList;
+//	}
+//
+//	public void setTodoList(ArrayList<String> todoList) {
+//		this.todoList = todoList;
+//	}
 	
 	
-	
-	
+
 	
 	
 	public boolean validate() {
-		
-		 
 		
 		if (username.equals("Marcus") && password.equals("admin") || username.equals("Marcus")) {
 			return true;
@@ -50,14 +63,7 @@ public class LoginBean {
 	
 	
 	
-	
 
-	public String getUserTask() {
-		return userTask;
-	}
 
-	public void setUserTask(String userTask) {
-		this.userTask = userTask;
-	}
 
 }

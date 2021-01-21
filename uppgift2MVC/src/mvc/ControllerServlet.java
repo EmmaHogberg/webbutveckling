@@ -8,7 +8,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 
 
@@ -32,8 +31,8 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	if (username != null) {
 		LoginBean bean = new LoginBean();
 		bean.setUsername(username);
-		String userTask = request.getParameter("userTask");
-		bean.setUserTask(userTask);
+//		String userTask = request.getParameter("userTask");
+//		bean.setUserTask(userTask);
 		request.setAttribute("bean", bean);
 		RequestDispatcher rd = request.getRequestDispatcher("login-success.jsp");
 		rd.forward(request, response);
@@ -41,13 +40,9 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 		rd.forward(request, response);
 	}
-	
-	
-	
 }
 	
 	
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -56,12 +51,10 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		if (username.equals("")) {
+		if (username.isEmpty()) {
 				Cookie cookie[] = request.getCookies();
 				username = cookie[1].getValue();
 		}
-		
-		
 		
 		
 		LoginBean bean = new LoginBean();
