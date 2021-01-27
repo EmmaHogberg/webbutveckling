@@ -14,7 +14,7 @@
 				<div class="col-lg-8 mx-auto">
 					<h2>Search departures from specific stop</h2>
 					<p class="lead">
-					<form action="<%=request.getContextPath()%>/ReturnStationID"
+					<form action="<%=request.getContextPath()%>/StationServlet"
 						method="get">
 						<p>
 							View departures from stop: <input type="text" name="station" required>

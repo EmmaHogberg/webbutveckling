@@ -15,14 +15,19 @@
 				<div class="col-lg-8 mx-auto">
 					<h2>The following departures are available for 
 					<%
-					StationBean stationBean = new StationBean();
-					stationBean.getStationName();
+				
+					StationBean stationBean = (StationBean)request.getAttribute("bean");
+					out.print(stationBean.getStationName());
 					%></h2>
 					
-					<p class="lead">Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Aut optio velit inventore, expedita quo
-						laboriosam possimus ea consequatur vitae, doloribus consequuntur
-						ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
+					<p class="lead">
+						
+						<%
+						out.print(stationBean.getLines());
+						%>
+					
+					
+					</p>
 				</div>
 			</div>
 		</div>
