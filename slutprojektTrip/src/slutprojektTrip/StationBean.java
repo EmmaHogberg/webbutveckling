@@ -1,7 +1,6 @@
 package slutprojektTrip;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 
@@ -10,7 +9,7 @@ public class StationBean {
 	
 	private String stationName;
 	private String stationId;
-	private List<String> lines = new ArrayList<>();
+	private ArrayList<Line> stationResults = new ArrayList<>();
 	
 	
 
@@ -30,12 +29,13 @@ public class StationBean {
 		this.stationId = stationId;
 	}
 
-	public List<String> getLines() {
-		return lines;
+	
+	public ArrayList<Line> getStationResults() {
+		return stationResults;
 	}
 
-	public void setLines(List<String> lines) {
-		this.lines = lines;
+	public void setStationResults(ArrayList<Line> lineInfos) {
+		this.stationResults = lineInfos;
 	}
 
 

@@ -13,16 +13,14 @@
 			<div class="row">
 				<div class="col-lg-8 mx-auto">
 					<h2>Search departures from specific stop</h2>
-					<p class="lead">
-					<form action="<%=request.getContextPath()%>/StationServlet"
-						method="get">
-						<p>
-							View departures from stop: <input type="text" name="station" required>
-						</p>
-	
-						<input type="submit" value="Search">
-					</form>
-					</p>
+						<form class="lead" action="<%=request.getContextPath()%>/StationServlet"
+							method="get">
+							<p>
+								View departures from stop: <input type="text" name="station" required />
+							</p>
+		
+							<input type="submit" value="Search" />
+						</form>
 				</div>
 			</div>
 		</div>
@@ -32,7 +30,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 mx-auto">
-					<h2>Services we offer</h2>
+					<h2>Your recent searches</h2>
 					<p class="lead">Lorem ipsum dolor sit amet, consectetur
 						adipisicing elit. Aut optio velit inventore, expedita quo
 						laboriosam possimus ea consequatur vitae, doloribus consequuntur

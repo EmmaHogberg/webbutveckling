@@ -1,53 +1,62 @@
 package slutprojektTrip;
 
-
-import java.io.IOException;
-import java.util.ArrayList;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
-
 public class Line {
+	private String name;
+	private String departure;
+	private String stopPoint;
+	private String transportType;
+	private String towards;
+	// String publicNote;
 	
-	public static ArrayList<String> printDepartureToArray(String stationId) throws IOException {
-		
-		ArrayList<String> stationDeparturesArrayList = new ArrayList<>();
-		
+	
+	public Line() {}
+	
+	public Line(String name, String departure, String stopPoint, String transportType, String towards) {
+		this.name = name;
+		this.departure = departure;
+		this.stopPoint = stopPoint;
+		this.transportType = transportType;
+		this.towards = towards;
+	}
 
-		// Build the API call by adding city+country into a URL
-		String URL = "http://www.labs.skanetrafiken.se/v2.2/stationresults.asp?selPointFrKey=" + stationId;
+	
+	public String getName() {
+		return name;
+	}
 
-		NodeList stationDepartureNodeList = StationMethods.getNodeListFromApi(URL);
-		
-		
-		
-		
-		//Loop to get all of the stations id that match input
-		for (int i = 0; i < stationDepartureNodeList.getLength(); i++) {
-			// Save a node of the current list id 
-			Node node = stationDepartureNodeList.item(i);
-			if (node.getNodeType() == Node.ELEMENT_NODE) {
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getDeparture() {
+		return departure;
+	}
 
-				// set the current node as an Element
-				Element eElement = (Element) node;
-				
-				String name = "<p>Line " + eElement.getElementsByTagName("Name").item(i).getTextContent() + "</p>";
-				String departure = "<p>Departure " + eElement.getElementsByTagName("JourneyDateTime").item(i).getTextContent() + "</p>";
-				
-				
-				stationDeparturesArrayList.add(name + departure);
-				
-				
-				System.out.println(name + departure);
-				
-			}
-		}
-		
-		
-		
-		
-		
-		return stationDeparturesArrayList;
+	public void setDeparture(String departure) {
+		this.departure = departure;
+	}
+
+	public String getStopPoint() {
+		return stopPoint;
+	}
+
+	public void setStopPoint(String stopPoint) {
+		this.stopPoint = stopPoint;
+	}
+
+	public String getTransportType() {
+		return transportType;
+	}
+
+	public void setTransportType(String transportType) {
+		this.transportType = transportType;
+	}
+
+	public String getTowards() {
+		return towards;
+	}
+
+	public void setTowards(String towards) {
+		this.towards = towards;
 	}
 }

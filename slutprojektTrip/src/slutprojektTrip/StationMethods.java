@@ -57,6 +57,13 @@ public class StationMethods {
 
 				// normalize the XML response
 				doc.getDocumentElement().normalize();
+				
+				
+				
+				System.out.print(doc);
+				
+				
+				
 
 				// Create a Node list that gets everything in and under the "Point" tag
 				NodeList stationNodeList = null;
@@ -68,7 +75,7 @@ public class StationMethods {
 				
 				else if (URL.contains("http://www.labs.skanetrafiken.se/v2.2/stationresults.asp?selPointFrKey=")) {
 					
-					stationNodeList = doc.getElementsByTagName("Lines");
+					stationNodeList = doc.getElementsByTagName("Line");
 				}
 				
 
