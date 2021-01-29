@@ -10,3 +10,18 @@ header {
 section {
   padding: 150px 0;
 }
+
+.line-list {
+  list-style-type: none;
+  background-color: lightgray;
+  padding: 20px;
+}
+
+.line-header {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.line-time {
+  font-size: 1.1rem;
+}

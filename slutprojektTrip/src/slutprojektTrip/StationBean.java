@@ -8,6 +8,9 @@ import java.util.ArrayList;
 public class StationBean {
 	
 	private String stationName;
+	private String firstRecentStation;
+	private String secondRecentStation;
+	private String thirdRecentStation;
 	private String stationId;
 	private ArrayList<Line> stationResults = new ArrayList<>();
 	
@@ -36,6 +39,30 @@ public class StationBean {
 
 	public void setStationResults(ArrayList<Line> lineInfos) {
 		this.stationResults = lineInfos;
+	}
+
+	public String getFirstRecentStation() {
+		return firstRecentStation;
+	}
+
+	public void setFirstRecentStation(String recentStation) {
+		this.firstRecentStation = recentStation;
+	}
+
+	public String getSecondRecentStation() {
+		return secondRecentStation;
+	}
+
+	public void setSecondRecentStation(String secondRecentStation) {
+		this.secondRecentStation = secondRecentStation;
+	}
+
+	public String getThirdRecentStation() {
+		return thirdRecentStation;
+	}
+
+	public void setThirdRecentStation(String thirdRecentStation) {
+		this.thirdRecentStation = thirdRecentStation;
 	}
 
 

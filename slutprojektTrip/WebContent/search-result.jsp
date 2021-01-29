@@ -10,7 +10,7 @@
 <jsp:include page="header.jsp" />
 
 
-<section id="services" class="bg-light">
+<section id="about" class="bg-light">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 mx-auto">
@@ -25,13 +25,12 @@
 				<p class="lead">
 					<%
 					for (Line line : stationBean.getStationResults()) {
-						out.print("<ul><li>Line " + line.getName() + " towards " + line.getTowards() + "</li>");
-						out.print("<li>" + line.getDeparture() + " from stop point " + line.getStopPoint() + "</li>");
-						out.print("<li>Means of transport " + line.getTransportType() + "</li></ul>");
 						
+					
+						out.print("<ul class=line-list><li class=line-header>Line " + line.getName() + " towards " + line.getTowards() + "</li>");
+						out.print("<li>" + "<div class=line-time>" + line.getDeparture() + "</div>" + " from stop point " + line.getStopPoint() + "</li>");
+						out.print("<li>With " + line.getTransportType() + "</li></ul>");
 						
-						
-						//out.print(String.format("<ul> <li>Line %s</li> <li>Towards %s</li> <li>Departure %s</li> <li>Departure %s</li>", line.getName(), line.getTowards(), line.getDeparture()));
 						
 					}
 					%>
@@ -40,6 +39,10 @@
 		</div>
 	</div>
 </section>
+
+
+<!-- Latest searches -->
+<jsp:include page="recent-searches.jsp" />
 
 <!-- Footer -->
 <jsp:include page="footer.jsp" />

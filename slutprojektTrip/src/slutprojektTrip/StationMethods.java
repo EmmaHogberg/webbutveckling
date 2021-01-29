@@ -22,11 +22,11 @@ public class StationMethods {
 	
 	// Method to get NodeList from Api
 	
-	public static NodeList getNodeListFromApi(String URL) throws IOException {
+	public static NodeList getNodeListFromApi(String url, String tagName) throws IOException {
 		
 		
 		// Set the URL that will be sent
-				URL line_api_url = new URL(URL);
+				URL line_api_url = new URL(url);
 
 				// Create a HTTP connection to sent the GET request over
 				HttpURLConnection linec = (HttpURLConnection) line_api_url.openConnection();
@@ -60,23 +60,12 @@ public class StationMethods {
 				
 				
 				
-				System.out.print(doc);
-				
-				
 				
 
 				// Create a Node list that gets everything in and under the "Point" tag
 				NodeList stationNodeList = null;
 				
-				if (URL.contains("http://www.labs.skanetrafiken.se/v2.2/querystation.asp?inpPointfr=")) {
-					
-					stationNodeList = doc.getElementsByTagName("Point");
-				}
-				
-				else if (URL.contains("http://www.labs.skanetrafiken.se/v2.2/stationresults.asp?selPointFrKey=")) {
-					
-					stationNodeList = doc.getElementsByTagName("Line");
-				}
+				stationNodeList = doc.getElementsByTagName(tagName);
 				
 
 				return stationNodeList;
