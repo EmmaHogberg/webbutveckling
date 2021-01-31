@@ -12,6 +12,7 @@ public class StationBean {
 	private String secondRecentStation;
 	private String thirdRecentStation;
 	private String stationId;
+	private ArrayList<String> recentStationsArrayList = new ArrayList<>();
 	private ArrayList<Line> stationResults = new ArrayList<>();
 	
 	
@@ -63,6 +64,14 @@ public class StationBean {
 
 	public void setThirdRecentStation(String thirdRecentStation) {
 		this.thirdRecentStation = thirdRecentStation;
+	}
+
+	public ArrayList<String> getRecentStationsArrayList() {
+		return recentStationsArrayList;
+	}
+
+	public void setRecentStationsArrayList(ArrayList<String> recentStationsArrayList) {
+		this.recentStationsArrayList = recentStationsArrayList;
 	}
 
 

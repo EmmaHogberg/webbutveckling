@@ -1,3 +1,4 @@
+<%@page import="slutprojektTrip.StationBean"%>
 <section id="services" class="bg-light">
 	<div class="container">
 		<div class="row">
@@ -8,10 +9,10 @@
 				
 					<form class="lead" action="<%=request.getContextPath()%>/StationServlet"
 							method="get">
-					
-						<input type="submit" name="station" value="Lund" />
-						<input type="submit" name="station"value="Helsingborg" />
-						<input type="submit" name="station" value="Svedala" />
+						<%StationBean stationBean = (StationBean) request.getAttribute("bean");%>
+						<input type="submit" name="<%stationBean.getFirstRecentStation();%>" value="<%stationBean.getFirstRecentStation();%>" />
+						<input type="submit" name="<%stationBean.getSecondRecentStation();%>"value="<%stationBean.getSecondRecentStation();%>" />
+						<input type="submit" name="<%stationBean.getThirdRecentStation();%>" value="<%stationBean.getThirdRecentStation();%>" />
 					</form>
 	
 				</p>

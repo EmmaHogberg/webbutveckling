@@ -18,7 +18,6 @@
 					The following departures are available for
 					<%
 					StationBean stationBean = (StationBean) request.getAttribute("bean");
-					out.print(stationBean.getStationName());
 					%>
 				</h2>
 
@@ -26,12 +25,10 @@
 					<%
 					for (Line line : stationBean.getStationResults()) {
 						
-					
 						out.print("<ul class=line-list><li class=line-header>Line " + line.getName() + " towards " + line.getTowards() + "</li>");
-						out.print("<li>" + "<div class=line-time>" + line.getDeparture() + "</div>" + " from stop point " + line.getStopPoint() + "</li>");
+						out.print("<li>" + "<span class=line-time>" + line.getDeparture() + "</span>" + " from stop point " + line.getStopPoint() + "</li>");
 						out.print("<li>With " + line.getTransportType() + "</li></ul>");
-						
-						
+											
 					}
 					%>
 				</p>

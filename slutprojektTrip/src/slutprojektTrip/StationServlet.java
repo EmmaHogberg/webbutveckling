@@ -3,6 +3,7 @@ package slutprojektTrip;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,9 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-
-
 
 
 @WebServlet("/StationServlet")
@@ -33,45 +31,67 @@ public class StationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setContentType("text/html");
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		
 		// Get station parameter and set StationName in bean
 		String stationInput = request.getParameter("station");
 		StationBean stationBean = new StationBean();
 		stationBean.setStationName(stationInput);
 		
+		// Get info from cookie if there is one
+		String cookieString = "";
+		ArrayList<String> cookieArrayList = new ArrayList<>();
+		
+		Cookie cookies[] = request.getCookies();
+		for (Cookie cookie : cookies) {
+			String name = cookie.getName();
+			
+			if (name.equals("recentSearch")) {
+				cookieString = cookie.getValue();
+				
+				// Convert from string to ArrayList
+				ArrayList<String> outputStations = (ArrayList<String>) Arrays.asList(cookieString.split(";"));
+				cookieArrayList = outputStations;
+			}
+		}
 		
 		
-//////////////////////////// TEST //////////////////////////////////
-		// Get cookie
-//		String [] recentStationsList = null;
-//		String recentSearch = null;
-//		Cookie cookies[] = request.getCookies();
-//		
-//		for (Cookie cookie : cookies) {
-//			String name = cookie.getName();
-//			
-//			if (name.equals("recentSearch")) {
-//				recentSearch = cookie.getValue();
-//				recentStationsList = recentSearch.split(",");
-//				System.out.print(recentStationsList);
-//			}
-//		}
-//		
-//		recentSearch = String.join(",", recentStationsList);
+		// Remove oldest station search from cookieArrayList
+		if (!cookieArrayList.isEmpty() && cookieArrayList.size() >= 2) {
+			cookieArrayList.remove(0);	
+		}
+			
+		// Add most recent station search to cookieArrayList
+		if (!stationInput.isEmpty())
+		cookieArrayList.add(stationInput);
+
+		
+		stationBean.setFirstRecentStation(cookieArrayList.get(2));
+		stationBean.setSecondRecentStation(cookieArrayList.get(1));
+		stationBean.setThirdRecentStation(cookieArrayList.get(0));
+	
 		
 		
-		
-		
-		
+		// Convert from ArrayList to string		
+		cookieString = "";
+		for (String station : cookieArrayList) {
+			cookieString += station + ";";
+		}
+			// Remove last semicolon
+			if (!cookieString.isEmpty()) {
+				cookieString = cookieString.substring(0, cookieString.length()-1);
+		}
+
 		// Cookie
-		Cookie ck = new Cookie("recentSearch", stationInput);  
-        response.addCookie(ck);  
+		Cookie cookie = new Cookie("recentSearch", cookieString);  
+		cookie.setMaxAge(7 * 24 * 60 * 60);
+        response.addCookie(cookie);  
 		
 		// Get station id
 		String stationId = getStationIdFromApi(stationInput);
 		
-		// Call API, get arraylist with result and set it to StationResult in bean
+		// Call API, get ArrayList with result and set it to StationResult in bean
 		ArrayList<Line> stationResults = getLinesFromApi(stationId);
 		stationBean.setStationResults(stationResults);
 		
@@ -79,12 +99,13 @@ public class StationServlet extends HttpServlet {
 		request.setAttribute("bean", stationBean);
 		RequestDispatcher rd = request.getRequestDispatcher("search-result.jsp");
 		rd.forward(request, response);
-	
+		
+		
 	}
 	
 	
 	
-	// Method to call Querystation-API and return a arraylist with all the info of departures
+	// Method to call Querystation-API and return a ArrayList with all the info of departures
 	private static String getStationIdFromApi(String stationInput) throws IOException {
 		
 		// Build the API call by adding station name into URL
@@ -107,7 +128,7 @@ public class StationServlet extends HttpServlet {
 	
 	
 	
-	// Method to call Stationresult-API and return a arraylist with all the info of departures
+	// Method to call Stationresult-API and return a ArrayList with all the info of departures
 	private static ArrayList<Line> getLinesFromApi(String stationId) throws IOException {
 		ArrayList<Line> lines = new ArrayList<>();
 		
