@@ -36,15 +36,13 @@
 
 <!-- Cookie consent pop up -->
 <div id="consent-popup" class="hidden">
-	<input type="submit" id="close" value="close x" />
-	
+	<input type="submit" id="close-button" value="close x" />
 	<p>
 		We use cookies to enhance your experience in our web site. 
 	</p>
 	<p>
 		Please <input type="submit" id="accept" value="accept" /> these for a better experience.
 	</p>
-	
 </div>
 
 

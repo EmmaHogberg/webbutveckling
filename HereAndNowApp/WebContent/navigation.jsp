@@ -2,7 +2,7 @@
 	id="mainNav">
 	<div class="container">
 		<a class="navbar-brand js-scroll-trigger"
-			href="<%=request.getContextPath()%>">Start</a>
+			href="<%=request.getContextPath()%>/start">Start</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarResponsive" aria-controls="navbarResponsive"
 			aria-expanded="false" aria-label="Toggle navigation">
