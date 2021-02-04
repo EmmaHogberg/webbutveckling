@@ -1,13 +1,14 @@
-<!-- head -->
 <%@page import="slutprojektTrip.StationBean"
 	import="slutprojektTrip.Line"%>
+
+<!-- head -->
 <jsp:include page="head.jsp" />
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
 	id="mainNav">
 	<div class="container">
-		<a class="navbar-brand js-scroll-trigger" href="index.jsp">Start</a>
+		<a class="navbar-brand js-scroll-trigger" href="<%=request.getContextPath()%>/start">Start</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarResponsive" aria-controls="navbarResponsive"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +31,7 @@
 <jsp:include page="header.jsp" />
 
 
-<section id="search" class="bg-light">
+<section id="search">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 mx-auto">
@@ -46,10 +47,9 @@
 					<%
 					for (Line line : stationBean.getStationResults()) {
 						
-						out.print("<ul class=line-list><li class=line-header>Line " + line.getName() + " towards " + line.getTowards() + "</li>");
-						out.print("<li>" + "<span class=line-time>" + line.getDeparture() + "</span>" + " stop point " + line.getStopPoint() + "</li>");
-						out.print("<li>With " + line.getTransportType() + "</li></ul>");
-											
+						out.print("<ul class=line-list><li class=line-header>Line " + line.getName() + " <span class=arrow>&#8594;</span> " + line.getTowards() + "</li>");
+						out.print("<li class=line-stop>" + "<span class=line-time>" + line.getDeparture() + "</span>" + " stop point " + line.getStopPoint() + "</li>");
+						out.print("<li class=transport-type>With " + line.getTransportType() + "</li></ul>");					
 					}
 					%>
 				</p>

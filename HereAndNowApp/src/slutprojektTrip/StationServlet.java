@@ -71,13 +71,11 @@ public class StationServlet extends HttpServlet {
 		request.setAttribute("bean", stationBean);
 		RequestDispatcher rd = request.getRequestDispatcher("search-result.jsp");
 		rd.forward(request, response);
-		
-		
 	}
 	
 	
 	
-	// Method to call Querystation-API and return a ArrayList with all the info of departures
+	// Method to call Query station-API and return a ArrayList with all the info of departures
 	private static String getStationIdFromApi(String stationInput) throws IOException {
 		
 		// Build the API call by adding station name into URL
@@ -89,7 +87,7 @@ public class StationServlet extends HttpServlet {
 		Node node = stationSearchNodeList.item(0);
 		if (node.getNodeType() == Node.ELEMENT_NODE) {
 
-			// set the current node as an Element
+			// Set the current node as an Element
 			Element eElement = (Element) node;
 			stationId = eElement.getElementsByTagName("Id").item(0).getTextContent();
 		}
@@ -100,7 +98,7 @@ public class StationServlet extends HttpServlet {
 	
 	
 	
-	// Method to call Stationresult-API and return a ArrayList with all the info of departures
+	// Method to call Station result-API and return a ArrayList with all the info of departures
 	private static ArrayList<Line> getLinesFromApi(String stationId) throws IOException {
 		ArrayList<Line> lines = new ArrayList<>();
 		
@@ -119,7 +117,7 @@ public class StationServlet extends HttpServlet {
 				// Set the current node as an Element
 				Element eElement = (Element) node;
 				
-				
+				// Get all of the information that will be displayed
 				String name = eElement.getElementsByTagName("Name").item(0).getTextContent();
 				String transportType = eElement.getElementsByTagName("LineTypeName").item(0).getTextContent();
 				String towards = eElement.getElementsByTagName("Towards").item(0).getTextContent();
@@ -129,7 +127,10 @@ public class StationServlet extends HttpServlet {
 				String departure = eElement.getElementsByTagName("JourneyDateTime").item(0).getTextContent();
 				departure = departure.substring(departure.length() - 8, 16);
 				
+				// Get the NewDepPoint tag to NodeList
 				NodeList newDepPoint = eElement.getElementsByTagName("NewDepPoint");
+				
+				// Merge track and stop point info and add error message if there is none
 				if (newDepPoint.getLength() > 0) {
 					track = newDepPoint.item(0).getTextContent();
 				}
@@ -142,8 +143,8 @@ public class StationServlet extends HttpServlet {
 					}
 				}
 				
-				// Add info to returning arraylist
-				Line line = new Line(name, departure, transportType, towards, track, stopPoint);
+				// Add info to returning ArrayList
+				Line line = new Line(name, departure, transportType, towards, stopPoint);
 				lines.add(line);
 			}
 		}

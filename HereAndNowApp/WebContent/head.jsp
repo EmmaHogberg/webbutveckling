@@ -17,7 +17,8 @@
 <!-- Custom styles for this template -->
 <link href="css/scrolling-nav.css" rel="stylesheet">
 
-<link href="style.css" rel="stylesheet">
+<!-- Custom CSS for this app -->
+<link href="css/style.css" rel="stylesheet">
 
 </head>
 

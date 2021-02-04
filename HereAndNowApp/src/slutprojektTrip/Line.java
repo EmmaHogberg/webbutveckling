@@ -6,22 +6,18 @@ public class Line {
 	private String stopPoint;
 	private String transportType;
 	private String towards;
-	private String track;
-	// String publicNote;
-	
-	
-	public Line() {}
-	
-	public Line(String name, String departure, String transportType, String towards, String track, String stopPoint) {
+
+	public Line() {
+	}
+
+	public Line(String name, String departure, String transportType, String towards, String stopPoint) {
 		this.name = name;
 		this.departure = departure;
 		this.stopPoint = stopPoint;
 		this.transportType = transportType;
 		this.towards = towards;
-		this.track = track;
 	}
 
-	
 	public String getName() {
 		return name;
 	}
@@ -29,7 +25,7 @@ public class Line {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public String getDeparture() {
 		return departure;
 	}
@@ -62,11 +58,4 @@ public class Line {
 		this.towards = towards;
 	}
 
-	public String getTrack() {
-		return track;
-	}
-
-	public void setTrack(String track) {
-		this.track = track;
-	}
 }

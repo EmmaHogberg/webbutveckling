@@ -1,0 +1,59 @@
+.bg-primary {
+	background-color: #9c27b0;
+}
+
+.line-list {
+	list-style-type: none;
+	background-color: #f8f9fa;
+	padding: 20px;
+}
+
+.line-header {
+	font-size: 1.1rem;
+	font-weight: 600;
+}
+
+.arrow {
+	content: "\2192";
+}
+
+.line-time {
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: #fff;
+	background-color: #43a047;
+	padding: 0.1rem 0.3rem;
+	margin-right: 0.4rem;
+}
+
+.transport-type {
+	font-size: 0.9rem;
+}
+
+.line-stop {
+	padding: 0.4rem 0rem;
+}
+
+.contact-list {
+	list-style-type: none;
+	padding: 0px;
+}
+
+.recent-stations {
+	margin-top: 1.1rem;
+}
+
+#consent-popup {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 2rem 8rem;
+	background-color: #20c997;
+	color: #fff;
+	transition: opacity 1s ease;
+}
+
+#consent-popup.hidden {
+	opacity: 0;
+}
