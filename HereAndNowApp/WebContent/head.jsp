@@ -18,7 +18,7 @@
 <link href="css/scrolling-nav.css" rel="stylesheet">
 
 <!-- Custom CSS for this app -->
-<link href="css/style.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet" type="text/css">
 
 </head>
 

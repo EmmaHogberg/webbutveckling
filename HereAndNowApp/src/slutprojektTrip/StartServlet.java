@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/start")
+@WebServlet("/")
 public class StartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -36,7 +36,7 @@ public class StartServlet extends HttpServlet {
 		}
 
 		request.setAttribute("bean", stationBean);
-		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("start.jsp");
 		rd.forward(request, response);
 	}
 }

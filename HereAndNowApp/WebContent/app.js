@@ -13,6 +13,8 @@ window.onload = () => {
         consentPopup.classList.add("hidden");
 		document.cookie = "cookie-consent=true"
     }
+	
+	
     acceptBtn.addEventListener("click", acceptFn);
 	
 	if (showPopup(storageType)) {

@@ -1,4 +1,4 @@
-.bg-primary {
+#new-header {
 	background-color: #9c27b0;
 }
 
@@ -48,12 +48,19 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
-	padding: 2rem 8rem;
+	padding: 2rem 4rem;
 	background-color: #20c997;
 	color: #fff;
 	transition: opacity 1s ease;
+	text-align: center;
 }
 
 #consent-popup.hidden {
 	opacity: 0;
+}
+
+#close {
+	position: fixed;
+ 	bottom: 0;
+  	right: 0; 
 }

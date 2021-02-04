@@ -6,8 +6,8 @@
 				<div class="lead">
 					<ul class="contact-list">
 						<li>For questions and information about traffic problems, contact us on 0771-77 77 77</li>
-						<li>Our opening hours are</li>
-						<li>Weekdays and weekends: 08.00-20.00</li>
+						<li>Our opening hours are:</li>
+						<li>Weekdays and weekends 08.00-20.00</li>
 					</ul>
 				</div>
 			</div>

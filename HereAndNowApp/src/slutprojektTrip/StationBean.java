@@ -3,15 +3,12 @@ package slutprojektTrip;
 import java.util.ArrayList;
 
 
-
-
 public class StationBean {
 	
 	private String stationName;
 	private String stationId;
 	private ArrayList<String> recentStationsArrayList = new ArrayList<>();
 	private ArrayList<Line> stationResults = new ArrayList<>();
-	
 	
 
 	public String getStationName() {
@@ -30,7 +27,6 @@ public class StationBean {
 		this.stationId = stationId;
 	}
 
-	
 	public ArrayList<Line> getStationResults() {
 		return stationResults;
 	}
