@@ -6,6 +6,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+
 public class ApiCallMethods {
 
 	// Method to call Query station-API and return a ArrayList with all the info of

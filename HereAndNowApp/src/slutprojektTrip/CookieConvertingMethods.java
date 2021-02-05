@@ -6,9 +6,8 @@ import java.util.List;
 
 import javax.servlet.http.Cookie;
 
+
 public class CookieConvertingMethods {
-	
-	
 	
 	// Method to check if there is a cookie with cookie-consent that is true
 	public static Boolean checkCookieConsent(Cookie cookies[]) {
@@ -95,12 +94,3 @@ public class CookieConvertingMethods {
 		return cookieString;
 	}		
 }
-
-			
-
-		
-			
-			
-			
-
-

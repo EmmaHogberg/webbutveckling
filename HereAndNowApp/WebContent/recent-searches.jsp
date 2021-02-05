@@ -10,9 +10,11 @@
 				<form class="lead" action="<%=request.getContextPath()%>/StationServlet" method="get">
 					<%StationBean stationBean = (StationBean) request.getAttribute("bean");
 					out.println("<div class=recent-stations>");	
+					
 					if (stationBean.getRecentStationsArrayList().isEmpty()) {
 						out.println("There are no recent searches");
 					}
+					
 					if (stationBean.getRecentStationsArrayList() != null) {
 						for (String stationName : stationBean.getRecentStationsArrayList())
 								out.println("<input type=submit name=station value=" + stationName + " />");
